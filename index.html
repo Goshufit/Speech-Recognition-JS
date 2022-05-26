@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Speech Detection</title>
   <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
 
   <div class="words" contenteditable>
+    <p>hello</p>
   </div>
 
-<script>
+  <script>
+  
+  
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
 
-</script>
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
+
+    let p = document.createElement('p');
+    const words = document.querySelector('.words');
+    words.appendChild(p);
+
+    recognition.addEventListener('result', e => {
+      console.log(e);
+    });
+
+    recognition.start()
+
+  </script>
 
 
 </body>
+
 </html>
